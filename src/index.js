@@ -2,7 +2,7 @@ require("dotenv").config()
 const express = require("express")
 const cors = require("cors")
 const mongoose = require("mongoose")
-const { crearVehiculo, obtenerVehiculos, eliminarVehiculo } = require("./routes/vehiculo")
+const { crearVehiculo, obtenerVehiculos, eliminarVehiculo, actualizarVehiculo } = require("./routes/vehiculo")
 const { crearCliente, obtenerClientes, eliminarCliente } = require("./routes/cliente")
 
 const app = express()
@@ -20,6 +20,7 @@ mongoose.connect(process.env.DB_URL)
 
 app.post("/vehiculos", crearVehiculo)
 app.get("/vehiculos", obtenerVehiculos)
+app.put("/vehiculos/:id", actualizarVehiculo)
 app.delete("/vehiculos/:id", eliminarVehiculo)
 
 app.post("/clientes", crearCliente)

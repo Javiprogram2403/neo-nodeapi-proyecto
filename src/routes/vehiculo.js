@@ -14,6 +14,10 @@ async function obtenerVehiculos(req,res,next){
 }
 
 // actualizar vehiculo (U)
+async function actualizarVehiculo(req,res,next){
+    await Vehiculo.findByIdAndUpdate(req.params.id, req.body)
+    res.json({msg: "Vehiculo actualizado"})
+}
 
 // borrar vehiculo (D)
 async function eliminarVehiculo(req, res,next){
@@ -26,6 +30,7 @@ module.exports = {
     crearVehiculo,
     obtenerVehiculos,
     eliminarVehiculo,
+    actualizarVehiculo
 }
 
 
