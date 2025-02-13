@@ -1,7 +1,11 @@
 const Usuario = require("../models/usuario")
+const bcrypt = require("bcryptjs")
 
 // crear usuario (C)
 async function registrarUsuario(req,res,next){
+    const salt = await bcrypt.genSalt(10)
+    const hash = await bcrypt.hash(req.body.clave, salt)
+    req.body.clave = hash
     const nuevo = new Usuario(req.body)
     await nuevo.save()
     res.json(nuevo)

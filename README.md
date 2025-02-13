@@ -9,13 +9,13 @@ x El proyecto debe contar con **mínimo tres entidades**, que estén relacionada
     x CRUD vehiculo
     x CRUD usuario
     x CRUD cliente
-    - CRUD venta
+    x CRUD venta
 x Una de las entidades debe ser obligatoriamente para la **gestión de usuarios**.
 
 **3. Gestión de Usuarios:**
 - La gestión de usuarios debe incluir:
   - Un **middleware de autenticación** para verificar el acceso.
-  - Contraseñas **encriptadas** (por ejemplo, usando bcrypt).
+  x Contraseñas **encriptadas** (por ejemplo, usando bcrypt).
   - Uso de **JSON Web Tokens (JWT)** para la autenticación.
 
 **4. Base de Datos:**
