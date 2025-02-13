@@ -7,7 +7,7 @@ x El servidor debe estar desarrollado en **Node.js** utilizando el framework **E
 x El proyecto debe contar con **mínimo tres entidades**, que estén relacionadas entre sí.
 - Cada entidad debe tener implementado **un CRUD completo** (Crear, Leer, Actualizar, Eliminar).
     x CRUD vehiculo
-    - CRUD usuario
+    x CRUD usuario
     x CRUD cliente
     - CRUD venta
 x Una de las entidades debe ser obligatoriamente para la **gestión de usuarios**.

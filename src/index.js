@@ -5,6 +5,7 @@ const mongoose = require("mongoose")
 const { crearVehiculo, obtenerVehiculos, eliminarVehiculo, actualizarVehiculo } = require("./routes/vehiculo")
 const { crearCliente, obtenerClientes, eliminarCliente, actualizarCliente } = require("./routes/cliente")
 const { registrarUsuario, obtenerUsuarios, eliminarUsuario, actualizarUsuario } = require("./routes/usuario")
+const { crearVenta, obtenerVentas, eliminarVenta, actualizarVenta } = require("./routes/venta")
 
 const app = express()
 app.use(express.json())
@@ -36,6 +37,12 @@ app.post("/usuarios", registrarUsuario)
 app.get("/usuarios", obtenerUsuarios)
 app.put("/usuarios/:id", actualizarUsuario)
 app.delete("/usuarios/:id", eliminarUsuario)
+
+//rutas de ventas
+app.post("/ventas", crearVenta)
+app.get("/ventas", obtenerVentas)
+app.put("/ventas/:id", actualizarVenta)
+app.delete("/ventas/:id", eliminarVenta)
 
 
 //app.delete("/clientes/:id", eliminarCliente)
