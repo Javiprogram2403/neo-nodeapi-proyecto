@@ -16,7 +16,7 @@ x Una de las entidades debe ser obligatoriamente para la **gestión de usuarios*
 - La gestión de usuarios debe incluir:
   - Un **middleware de autenticación** para verificar el acceso.
   x Contraseñas **encriptadas** (por ejemplo, usando bcrypt).
-  - Uso de **JSON Web Tokens (JWT)** para la autenticación.
+  x Uso de **JSON Web Tokens (JWT)** para la autenticación.
 
 **4. Base de Datos:**
 x Se debe establecer conexión con una base de datos **MongoDB**.

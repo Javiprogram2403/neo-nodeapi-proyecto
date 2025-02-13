@@ -4,7 +4,7 @@ const cors = require("cors")
 const mongoose = require("mongoose")
 const { crearVehiculo, obtenerVehiculos, eliminarVehiculo, actualizarVehiculo } = require("./routes/vehiculo")
 const { crearCliente, obtenerClientes, eliminarCliente, actualizarCliente } = require("./routes/cliente")
-const { registrarUsuario, obtenerUsuarios, eliminarUsuario, actualizarUsuario } = require("./routes/usuario")
+const { registrarUsuario, obtenerUsuarios, eliminarUsuario, actualizarUsuario, loggearUsuario } = require("./routes/usuario")
 const { crearVenta, obtenerVentas, eliminarVenta, actualizarVenta } = require("./routes/venta")
 
 const app = express()
@@ -34,6 +34,7 @@ app.delete("/clientes/:id", eliminarCliente)
 
 //rutas de usuarios
 app.post("/usuarios", registrarUsuario)
+app.post("/login", loggearUsuario)
 app.get("/usuarios", obtenerUsuarios)
 app.put("/usuarios/:id", actualizarUsuario)
 app.delete("/usuarios/:id", eliminarUsuario)
