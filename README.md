@@ -8,7 +8,7 @@ x El proyecto debe contar con **mínimo tres entidades**, que estén relacionada
 - Cada entidad debe tener implementado **un CRUD completo** (Crear, Leer, Actualizar, Eliminar).
     x CRUD vehiculo
     - CRUD usuario
-    - CRUD cliente
+    x CRUD cliente
     - CRUD venta
 x Una de las entidades debe ser obligatoriamente para la **gestión de usuarios**.
 

@@ -4,6 +4,7 @@ const cors = require("cors")
 const mongoose = require("mongoose")
 const { crearVehiculo, obtenerVehiculos, eliminarVehiculo, actualizarVehiculo } = require("./routes/vehiculo")
 const { crearCliente, obtenerClientes, eliminarCliente, actualizarCliente } = require("./routes/cliente")
+const { registrarUsuario, obtenerUsuarios, eliminarUsuario, actualizarUsuario } = require("./routes/usuario")
 
 const app = express()
 app.use(express.json())
@@ -18,15 +19,23 @@ mongoose.connect(process.env.DB_URL)
 //D (DELETE) DELETE
 //*/
 
+// rutas de vehiculos
 app.post("/vehiculos", crearVehiculo)
 app.get("/vehiculos", obtenerVehiculos)
 app.put("/vehiculos/:id", actualizarVehiculo)
 app.delete("/vehiculos/:id", eliminarVehiculo)
 
+// rutas de clientes
 app.post("/clientes", crearCliente)
 app.get("/clientes", obtenerClientes)
 app.put("/clientes/:id", actualizarCliente)
 app.delete("/clientes/:id", eliminarCliente)
+
+//rutas de usuarios
+app.post("/usuarios", registrarUsuario)
+app.get("/usuarios", obtenerUsuarios)
+app.put("/usuarios/:id", actualizarUsuario)
+app.delete("/usuarios/:id", eliminarUsuario)
 
 
 //app.delete("/clientes/:id", eliminarCliente)

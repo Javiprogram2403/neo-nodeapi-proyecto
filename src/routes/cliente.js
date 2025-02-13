@@ -1,6 +1,6 @@
 const Cliente = require("../models/cliente")
 
-// crear vehiculo (C)
+// crear cliente (C)
 async function crearCliente(req,res,next){
     const nuevo = new Cliente(req.body)
     await nuevo.save()
