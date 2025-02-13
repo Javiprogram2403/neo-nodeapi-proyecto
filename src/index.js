@@ -3,7 +3,7 @@ const express = require("express")
 const cors = require("cors")
 const mongoose = require("mongoose")
 const { crearVehiculo, obtenerVehiculos, eliminarVehiculo, actualizarVehiculo } = require("./routes/vehiculo")
-const { crearCliente, obtenerClientes, eliminarCliente } = require("./routes/cliente")
+const { crearCliente, obtenerClientes, eliminarCliente, actualizarCliente } = require("./routes/cliente")
 
 const app = express()
 app.use(express.json())
@@ -25,6 +25,7 @@ app.delete("/vehiculos/:id", eliminarVehiculo)
 
 app.post("/clientes", crearCliente)
 app.get("/clientes", obtenerClientes)
+app.put("/clientes/:id", actualizarCliente)
 app.delete("/clientes/:id", eliminarCliente)
 
 

@@ -14,6 +14,10 @@ async function obtenerClientes(req,res,next){
 }
 
 // actualizar cliente (U)
+async function actualizarCliente(req,res,next){
+    await Cliente.findByIdAndUpdate(req.params.id, req.body)
+    res.json({msg: "Cliente actualizado"})
+}
 
 // borrar cliente (D)
 async function eliminarCliente(req, res,next){
@@ -26,5 +30,6 @@ module.exports = {
     crearCliente,
     obtenerClientes,
     eliminarCliente,
+    actualizarCliente,
 }
 
