@@ -12,6 +12,7 @@ async function obtenerVehiculos(req,res,next){
     const vehiculos = await Vehiculo.find({})
     res.json(vehiculos)
 }
+
 // actualizar vehiculo (U)
 
 // borrar vehiculo (D)
