@@ -14,7 +14,7 @@ x Una de las entidades debe ser obligatoriamente para la **gestión de usuarios*
 
 **3. Gestión de Usuarios:**
 - La gestión de usuarios debe incluir:
-  - Un **middleware de autenticación** para verificar el acceso.
+  x Un **middleware de autenticación** para verificar el acceso.
   x Contraseñas **encriptadas** (por ejemplo, usando bcrypt).
   x Uso de **JSON Web Tokens (JWT)** para la autenticación.
 
@@ -23,8 +23,8 @@ x Se debe establecer conexión con una base de datos **MongoDB**.
 x Para la definición de modelos y la lógica de interacción con la base de datos se debe utilizar **Mongoose**.
 
 **5. Middleware de Autorización:**
-- Es necesario implementar un middleware que valide que **solo los usuarios autenticados** puedan acceder a las rutas protegidas.
+x Es necesario implementar un middleware que valide que **solo los usuarios autenticados** puedan acceder a las rutas protegidas.
 
 ### Notas Importantes:
-- Asegurarse de que las entidades tengan relaciones entre ellas para cumplir con el requisito de interconexión.
+x Asegurarse de que las entidades tengan relaciones entre ellas para cumplir con el requisito de interconexión.
 x Implementar buenas prácticas en la organización del código y manejo de errores.

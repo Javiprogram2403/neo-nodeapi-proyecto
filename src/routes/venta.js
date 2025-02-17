@@ -10,6 +10,10 @@ async function crearVenta(req,res,next){
 // obtener todos los ventas (R)
 async function obtenerVentas(req,res,next){
     const ventas = await Venta.find({})
+    .populate('vehiculo')
+    .populate('comprador', 'nombre')
+    .populate('vendedor', 'nombre email')
+    
     res.json(ventas)
 }
 
