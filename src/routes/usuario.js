@@ -1,6 +1,7 @@
 const Usuario = require("../models/usuario")
 const bcrypt = require("bcryptjs")
 const jwt = require("jsonwebtoken")
+require("dotenv").config()
 
 // crear usuario (C)
 async function registrarUsuario(req,res,next){
@@ -27,7 +28,7 @@ async function loggearUsuario(req,res,next){
 
     const resultadoComparacion = await bcrypt.compare(clave, usuarioCoincidentePorEmail.clave)
     if(resultadoComparacion === true){
-        const token = jwt.sign({id: usuarioCoincidentePorEmail._id}, "SECRETO123", { expiresIn: "1h" })
+        const token = jwt.sign({id: usuarioCoincidentePorEmail._id}, process.env.JWT_SECRET, { expiresIn: "1h" })
         return res.json({msg: "Credenciales correctos!!", token: token})
     }
     else{

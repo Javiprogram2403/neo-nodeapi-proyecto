@@ -1,5 +1,6 @@
 const jwt = require('jsonwebtoken')
 const Usuario = require("../models/usuario")
+require("dotenv").config()
 
 async function checkAutenticacion(req,res,next){
     const cabecera = req.headers.authorization
@@ -14,7 +15,7 @@ async function checkAutenticacion(req,res,next){
     }
 
     try{
-        const descifrado = jwt.verify(token, "SECRETO123")
+        const descifrado = jwt.verify(token, process.env.JWT_SECRET)
         const usuarioId = descifrado.id
         const usuarioEncontrado = await Usuario.findById(usuarioId)
         if(usuarioEncontrado){
