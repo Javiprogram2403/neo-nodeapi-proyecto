@@ -6,6 +6,7 @@ const { crearVehiculo, obtenerVehiculos, eliminarVehiculo, actualizarVehiculo } 
 const { crearCliente, obtenerClientes, eliminarCliente, actualizarCliente } = require("./routes/cliente")
 const { registrarUsuario, obtenerUsuarios, eliminarUsuario, actualizarUsuario, loggearUsuario } = require("./routes/usuario")
 const { crearVenta, obtenerVentas, eliminarVenta, actualizarVenta } = require("./routes/venta")
+const { checkAutenticacion } = require('./middlewares/autenticacion')
 
 const app = express()
 app.use(express.json())
@@ -21,29 +22,29 @@ mongoose.connect(process.env.DB_URL)
 //*/
 
 // rutas de vehiculos
-app.post("/vehiculos", crearVehiculo)
+app.post("/vehiculos",checkAutenticacion, crearVehiculo)
 app.get("/vehiculos", obtenerVehiculos)
-app.put("/vehiculos/:id", actualizarVehiculo)
-app.delete("/vehiculos/:id", eliminarVehiculo)
+app.put("/vehiculos/:id", checkAutenticacion, actualizarVehiculo)
+app.delete("/vehiculos/:id", checkAutenticacion, eliminarVehiculo)
 
 // rutas de clientes
 app.post("/clientes", crearCliente)
-app.get("/clientes", obtenerClientes)
-app.put("/clientes/:id", actualizarCliente)
-app.delete("/clientes/:id", eliminarCliente)
+app.get("/clientes", checkAutenticacion, obtenerClientes)
+app.put("/clientes/:id", checkAutenticacion, actualizarCliente)
+app.delete("/clientes/:id", checkAutenticacion, eliminarCliente)
 
 //rutas de usuarios
 app.post("/usuarios", registrarUsuario)
 app.post("/login", loggearUsuario)
-app.get("/usuarios", obtenerUsuarios)
-app.put("/usuarios/:id", actualizarUsuario)
-app.delete("/usuarios/:id", eliminarUsuario)
+app.get("/usuarios", checkAutenticacion, obtenerUsuarios)
+app.put("/usuarios/:id",checkAutenticacion, actualizarUsuario)
+app.delete("/usuarios/:id",checkAutenticacion, eliminarUsuario)
 
 //rutas de ventas
-app.post("/ventas", crearVenta)
-app.get("/ventas", obtenerVentas)
-app.put("/ventas/:id", actualizarVenta)
-app.delete("/ventas/:id", eliminarVenta)
+app.post("/ventas",checkAutenticacion, crearVenta)
+app.get("/ventas",checkAutenticacion, obtenerVentas)
+app.put("/ventas/:id",checkAutenticacion, actualizarVenta)
+app.delete("/ventas/:id",checkAutenticacion, eliminarVenta)
 
 
 //app.delete("/clientes/:id", eliminarCliente)
