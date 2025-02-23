@@ -5,6 +5,9 @@ require("dotenv").config()
 
 // crear usuario (C)
 async function registrarUsuario(req,res,next){
+    if(!req.body.email || !req.body.clave || !req.body.dni || !req.body.nombre){
+        return res.status(400).json({msg: "Faltan datos requeridos"})
+    }
     const salt = await bcrypt.genSalt(10)
     const hash = await bcrypt.hash(req.body.clave, salt)
     req.body.clave = hash
@@ -15,6 +18,9 @@ async function registrarUsuario(req,res,next){
 
 // async function acceder usuario
 async function loggearUsuario(req,res,next){
+    if(!req.body.email || !req.body.clave){
+        return res.status(400).json({msg: "Faltan datos requeridos"})
+    }
     // lo que el usuario me envia desde el formulario
     const email = req.body.email
     const clave = req.body.clave 
@@ -45,12 +51,22 @@ async function obtenerUsuarios(req,res,next){
 
 // actualizar usuario (U)
 async function actualizarUsuario(req,res,next){
+    if(!req.params.id){
+        return res.status(400).json({msg: "Parámetro id requerido"})
+    }
+
+    if(!req.body.email && !req.body.clave){
+        return res.status(400).json({msg: "Faltan datos requeridos"})
+    }
     await Usuario.findByIdAndUpdate(req.params.id, req.body)
     res.json({msg: "Usuario actualizado"})
 }
 
 // borrar usuario (D)
 async function eliminarUsuario(req, res,next){
+    if(!req.params.id){
+        return res.status(400).json({msg: "Parámetro id requerido"})
+    }
     await Usuario.findByIdAndDelete(req.params.id)
     res.json({msg: "Usuario eliminado"})
 }
